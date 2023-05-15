@@ -4,15 +4,13 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @Setter
 @Getter
 @Entity
-public class Customer {
+public class Customer extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -21,6 +19,7 @@ public class Customer {
     String customerPhoneNumber;
     String customerEmail;
     String customerPaymentMethod;
-    List<String> customerOrders;
+
+//    List<String> customerOrders;
 
 }

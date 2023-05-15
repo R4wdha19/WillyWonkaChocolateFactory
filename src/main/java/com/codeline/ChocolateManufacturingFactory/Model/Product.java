@@ -5,19 +5,20 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Data
 @Setter
 @Getter
 @Entity
-public class Product {
+public class Product extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     Integer productId;
     String productName;
-    List<String> productIngredients;
+    @ManyToOne
+    @JoinColumn(name = "inventory_id", referencedColumnName = "id")
+    Inventory inventoryProductList;
     Integer productPrice;
     Integer productAvailableQuantity;
 
