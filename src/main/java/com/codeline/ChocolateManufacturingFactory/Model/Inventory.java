@@ -19,4 +19,5 @@ public class Inventory extends BaseEntity{
     String inventoryManagedBy;
 
 
+
 }

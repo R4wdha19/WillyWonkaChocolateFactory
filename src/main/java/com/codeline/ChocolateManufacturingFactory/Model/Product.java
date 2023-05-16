@@ -21,6 +21,7 @@ public class Product extends BaseEntity {
     Inventory inventory;
     Integer productPrice;
     Integer productAvailableQuantity;
+    Integer totalQuantityOfTheProduct;
     Integer productReorderThreshold;
 
 }

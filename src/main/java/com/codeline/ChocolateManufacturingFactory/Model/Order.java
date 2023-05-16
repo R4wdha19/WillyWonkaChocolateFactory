@@ -16,7 +16,7 @@ public class Order extends BaseEntity{
     @Column(name = "id")
     Integer orderId;
     String orderShippingAddress;
-    Integer orderQuantity;
+ 
     @ManyToOne
     @JoinColumn(name = "customer_id", referencedColumnName = "id")
     Customer customerHistoryOfOrders;
