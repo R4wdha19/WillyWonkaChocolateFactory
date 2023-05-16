@@ -18,7 +18,7 @@ public class Product extends BaseEntity {
     String productName;
     @ManyToOne
     @JoinColumn(name = "inventory_id", referencedColumnName = "id")
-    Inventory inventoryProductList;
+    Inventory inventory;
     Integer productPrice;
     Integer productAvailableQuantity;
     Integer productReorderThreshold;

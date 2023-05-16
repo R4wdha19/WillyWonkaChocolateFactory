@@ -27,7 +27,7 @@ public class ProductRequestObject {
         product.setProductReorderThreshold(request.getProductReorderThreshold());
         product.setIsActive(true);
         product.setCreatedDate(new Date());
-        product.setInventoryProductList(InventoryRequestObject.convert(request.getInventoryRequestObject()));
+        product.setInventory(InventoryRequestObject.convert(request.getInventoryRequestObject()));
         return product;
     }
 
