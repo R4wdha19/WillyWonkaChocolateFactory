@@ -1,7 +1,6 @@
 package com.codeline.ChocolateManufacturingFactory.RequestObject;
 
 import com.codeline.ChocolateManufacturingFactory.Model.Product;
-import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +12,6 @@ import java.util.List;
 @Setter
 @Getter
 @Data
-@Builder
 public class ProductRequestObject {
     Integer productId;
     String productName;

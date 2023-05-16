@@ -1,7 +1,6 @@
 package com.codeline.ChocolateManufacturingFactory.RequestObject;
 
 import com.codeline.ChocolateManufacturingFactory.Model.Inventory;
-import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -13,7 +12,6 @@ import java.util.List;
 @Setter
 @Getter
 @Data
-@Builder
 public class InventoryRequestObject {
     Integer inventoryId;
     String inventoryLocation;
@@ -21,6 +19,8 @@ public class InventoryRequestObject {
 
 
     public static Inventory convert(InventoryRequestObject request) {
+
+
         Inventory inventory = new Inventory();
         inventory.setInventoryLocation(request.getInventoryLocation());
         inventory.setInventoryManagedBy(request.getInventoryManagedBy());
