@@ -20,6 +20,5 @@ public class Customer extends BaseEntity {
     String customerEmail;
     String customerPaymentMethod;
 
-//    List<String> customerOrders;
 
 }

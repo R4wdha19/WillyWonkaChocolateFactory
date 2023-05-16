@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Setter
 @Getter
 @Entity
-public class Product extends BaseEntity{
+public class Product extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -21,6 +21,6 @@ public class Product extends BaseEntity{
     Inventory inventoryProductList;
     Integer productPrice;
     Integer productAvailableQuantity;
-
+    Integer productReorderThreshold;
 
 }
