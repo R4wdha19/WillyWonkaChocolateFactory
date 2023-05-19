@@ -19,8 +19,6 @@ public class InventoryRequestObject {
 
 
     public static Inventory convert(InventoryRequestObject request) {
-
-
         Inventory inventory = new Inventory();
         inventory.setInventoryLocation(request.getInventoryLocation());
         inventory.setInventoryManagedBy(request.getInventoryManagedBy());

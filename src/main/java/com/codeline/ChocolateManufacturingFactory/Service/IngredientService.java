@@ -4,7 +4,9 @@ import com.codeline.ChocolateManufacturingFactory.Model.Ingredient;
 import com.codeline.ChocolateManufacturingFactory.Repository.IngredientRepository;
 import com.codeline.ChocolateManufacturingFactory.RequestObject.IngredientRequestObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class IngredientService {
     @Autowired
     IngredientRepository ingredientRepository;
