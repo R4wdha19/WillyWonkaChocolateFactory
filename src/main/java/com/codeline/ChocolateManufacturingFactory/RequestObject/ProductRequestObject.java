@@ -18,6 +18,7 @@ public class ProductRequestObject {
     InventoryRequestObject inventoryRequestObject;
     Integer productPrice;
     Integer productAvailableQuantity;
+    Integer totalQuantityOfTheProduct;
     Integer productReorderThreshold;
     public static Product convert(ProductRequestObject request) {
         Product product = new Product();
@@ -25,6 +26,7 @@ public class ProductRequestObject {
         product.setProductPrice(request.getProductPrice());
         product.setProductAvailableQuantity(request.getProductAvailableQuantity());
         product.setProductReorderThreshold(request.getProductReorderThreshold());
+        product.setTotalQuantityOfTheProduct(request.getTotalQuantityOfTheProduct());
         product.setIsActive(true);
         product.setCreatedDate(new Date());
         product.setInventory(InventoryRequestObject.convert(request.getInventoryRequestObject()));

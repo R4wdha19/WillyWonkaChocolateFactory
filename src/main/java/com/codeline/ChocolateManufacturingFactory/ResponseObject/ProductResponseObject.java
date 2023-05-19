@@ -19,15 +19,16 @@ public class ProductResponseObject {
     String name;
     Inventory inventory;
     Integer price;
-    Integer quantity;
+    Integer currentQuantity;
     Integer reorderThreshold;
+    Integer totalQuantity;
 
     public static ProductResponseObject convertRequestToResponse(Product requestFromUser) {
         return ProductResponseObject.builder()
                 .id(requestFromUser.getProductId())
                 .name(requestFromUser.getProductName())
                 .price(requestFromUser.getProductPrice())
-                .quantity(requestFromUser.getProductAvailableQuantity())
+                .currentQuantity(requestFromUser.getProductAvailableQuantity())
                 .reorderThreshold(requestFromUser.getProductReorderThreshold())
                 .inventory(requestFromUser.getInventory())
                 .build();
