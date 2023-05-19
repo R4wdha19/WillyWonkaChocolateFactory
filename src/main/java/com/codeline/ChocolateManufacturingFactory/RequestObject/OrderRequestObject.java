@@ -2,6 +2,7 @@ package com.codeline.ChocolateManufacturingFactory.RequestObject;
 
 import com.codeline.ChocolateManufacturingFactory.Model.Customer;
 import com.codeline.ChocolateManufacturingFactory.Model.Order;
+import com.codeline.ChocolateManufacturingFactory.Model.Product;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,7 +18,9 @@ public class OrderRequestObject {
     Integer orderId;
     String orderShippingAddress;
     Integer orderQuantity;
+
     Customer customer;
+    Product product;
     public static Order convert(OrderRequestObject request) {
 
         Order inventory = new Order();

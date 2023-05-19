@@ -16,7 +16,7 @@ public class ProductRequestObject {
     Integer productId;
     String productName;
     InventoryRequestObject inventoryRequestObject;
-    Integer productPrice;
+    Double productPrice;
     Integer productAvailableQuantity;
     Integer totalQuantityOfTheProduct;
     Integer productReorderThreshold;

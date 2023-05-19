@@ -18,7 +18,7 @@ public class ProductResponseObject {
     Integer id;
     String name;
     Inventory inventory;
-    Integer price;
+    Double price;
     Integer currentQuantity;
     Integer reorderThreshold;
     Integer totalQuantity;
