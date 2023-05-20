@@ -22,7 +22,6 @@ public class IngredientRequestObject {
         Ingredient ingredient = new Ingredient();
 
         ingredient.setIngredientName(request.getIngredientName());
-        ingredient.setIngredientsOfProduct(request.getProduct());
         ingredient.setIsActive(true);
         ingredient.setCreatedDate(new Date());
         return ingredient;

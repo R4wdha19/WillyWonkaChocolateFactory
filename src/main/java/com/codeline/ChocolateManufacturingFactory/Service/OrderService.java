@@ -22,9 +22,10 @@ public class OrderService {
     public void createOrder(OrderRequestObject orderRequestObject) {
         Order order = OrderRequestObject.convert(orderRequestObject);
         Customer customer = customerRepository.getCustomerById(orderRequestObject.getCustomer().getCustomerId());
-        Product product = productRepository.getProductById(orderRequestObject.getProduct().getProductId());
-       order.setProduct(product);
-       order.setCustomerHistoryOfOrders(customer);
+        Product product = productRepository.
+                getProductById(orderRequestObject.getProduct().getProductId());
+        order.setProduct(product);
+        order.setCustomerHistoryOfOrders(customer);
         orderRepository.save(order);
     }
 }
