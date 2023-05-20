@@ -29,7 +29,6 @@ public class ProductRequestObject {
         product.setTotalQuantityOfTheProduct(request.getTotalQuantityOfTheProduct());
         product.setIsActive(true);
         product.setCreatedDate(new Date());
-        product.setInventory(InventoryRequestObject.convert(request.getInventoryRequestObject()));
         return product;
     }
 

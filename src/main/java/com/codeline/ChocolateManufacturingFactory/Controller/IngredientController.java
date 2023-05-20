@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping(name = "Ingredient")
+@RequestMapping(value = "Ingredient")
 public class IngredientController {
     @Autowired
     IngredientService ingredientService;

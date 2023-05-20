@@ -18,18 +18,17 @@ public class OrderRequestObject {
     Integer orderId;
     String orderShippingAddress;
     Integer orderQuantity;
-
     Customer customer;
     Product product;
     public static Order convert(OrderRequestObject request) {
 
-        Order inventory = new Order();
-        inventory.setOrderShippingAddress(request.getOrderShippingAddress());
-        inventory.setOrderQuantity(request.getOrderQuantity());
-        inventory.setCustomerHistoryOfOrders(request.getCustomer());
-        inventory.setIsActive(true);
-        inventory.setCreatedDate(new Date());
-        return inventory;
+        Order order = new Order();
+        order.setOrderShippingAddress(request.getOrderShippingAddress());
+        order.setOrderQuantity(request.getOrderQuantity());
+//        order.setCustomerHistoryOfOrders(request.getCustomer());
+        order.setIsActive(true);
+        order.setCreatedDate(new Date());
+        return order;
     }
 
     public static List<Order> convert(List<OrderRequestObject> requestList) {
