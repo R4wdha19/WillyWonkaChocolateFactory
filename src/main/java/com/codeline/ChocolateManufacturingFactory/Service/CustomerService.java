@@ -15,4 +15,8 @@ public class CustomerService {
         Customer customer = CustomerRequestObject.convert(customerRequestObject);
         customerRepository.save(customer);
     }
+
+    public Customer getCustomerById(CustomerRequestObject customerRequestObject){
+
+    }
 }
