@@ -28,7 +28,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     @Query("select c from customer c where c.isActive = 0")
     List<Customer> getAllInActiveCustomers();
 
-    @Query(value = "select c from customer c  where c.id = (select Max(c.id) from Customer c )")
+    @Query(value = "select c from customer c where c.id = (select Max(c.id) from Customer c )")
     Customer getLatestRow();
 
 
