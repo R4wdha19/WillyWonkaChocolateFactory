@@ -20,7 +20,7 @@ public interface IngredientRepository extends JpaRepository<Ingredient,Integer> 
     @Query("select i from Ingredient i")
     Ingredient getAllIngredients();
 
-    @Query(value = "select * from Ingredient where created_Date Like concat (?1,%)", nativeQuery = true)
+    @Query(value = "select * from ingredient where created_Date Like concat (?1,%)", nativeQuery = true)
     List<Ingredient> getAllIngredientsByCreatedDate(@Param("createdDate") String createdDate);
 
     @Query("select i from Ingredient i where i.isActive = 1")
@@ -41,7 +41,7 @@ public interface IngredientRepository extends JpaRepository<Ingredient,Integer> 
 
     @Modifying
     @Transactional
-    @Query(value = "update Ingredient i Set i.isAitive = false")
+    @Query(value = "update Ingredient i Set i.isActive = false")
     void deleteAllIngredient();
 
     @Query(value = "select i from Ingredient i where i.createdDate > :createdDate")
