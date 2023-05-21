@@ -1,5 +1,6 @@
 package com.codeline.ChocolateManufacturingFactory.Repository;
 
+import com.codeline.ChocolateManufacturingFactory.Model.Inventory;
 import com.codeline.ChocolateManufacturingFactory.Model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -45,5 +46,8 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
 
     @Query(value = "select p from Product p where p.createdDate > :createdDate")
     List<Product> deleteAllProductsCreatedAfterDate(@Param("createdDate") Date createdDate);
+
+    @Query("select p from Product p where p.Inventory.id = :inventoryId")
+    List<Product> allProductsByInventoryId(@Param("inventoryId") Integer inventoryId);
 
 }

@@ -21,7 +21,6 @@ public class IngredientService {
 
         for (IngredientRequestObject request : ingredientRequestObject) {
             Ingredient ingredient = IngredientRequestObject.convert(request);
-
             Product productById = productRepository.getProductById(request.getProduct().getProductId());
             ingredient.setIngredientsOfProduct(productById);
             ingredientRepository.save(ingredient);

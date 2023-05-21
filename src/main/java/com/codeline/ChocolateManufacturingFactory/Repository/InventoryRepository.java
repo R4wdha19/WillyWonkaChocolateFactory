@@ -45,4 +45,5 @@ public interface InventoryRepository extends JpaRepository<Inventory, Integer> {
 
     @Query(value = "select i from Inventory i where i.createdDate > :createdDate")
     List<Inventory> deleteAllInventoriesCreatedAfterDate(@Param("createdDate") Date createdDate);
+
 }
