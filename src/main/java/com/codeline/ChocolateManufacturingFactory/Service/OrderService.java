@@ -32,6 +32,6 @@ public class OrderService {
 
 
     public Order getOrderById(Integer orderId) {
-        return orderRepository.getOrderById(orderIdl);
+        return orderRepository.getOrderById(orderId);
     }
 }

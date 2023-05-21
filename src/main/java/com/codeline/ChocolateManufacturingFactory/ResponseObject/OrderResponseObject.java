@@ -2,6 +2,7 @@ package com.codeline.ChocolateManufacturingFactory.ResponseObject;
 
 import com.codeline.ChocolateManufacturingFactory.Model.Customer;
 import com.codeline.ChocolateManufacturingFactory.Model.Order;
+import com.codeline.ChocolateManufacturingFactory.Model.Product;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -19,6 +20,7 @@ public class OrderResponseObject {
     String address;
     Integer quantity;
     Customer customer;
+    Product product;
 
     public static OrderResponseObject convertRequestToResponse(Order requestFromUser) {
         return OrderResponseObject.builder()
@@ -26,6 +28,7 @@ public class OrderResponseObject {
                 .address(requestFromUser.getOrderShippingAddress())
                 .quantity(requestFromUser.getOrderQuantity())
                 .customer(requestFromUser.getCustomerHistoryOfOrders())
+                .product(requestFromUser.getProduct())
                 .build();
     }
 

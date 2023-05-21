@@ -13,7 +13,7 @@ import java.util.List;
 
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Integer> {
-    @Query(value = "select o from Order o where o.id =: orderId")
+    @Query(value = "select o from Order o where o.id =:orderId")
     Order getOrderById (@Param("orderId") Integer id);
 
     @Query("select o from Order o")
