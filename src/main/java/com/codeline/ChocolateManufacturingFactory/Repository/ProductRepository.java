@@ -47,7 +47,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     @Query(value = "select p from Product p where p.createdDate > :createdDate")
     List<Product> deleteAllProductsCreatedAfterDate(@Param("createdDate") Date createdDate);
 
-    @Query("select p from Product p where p.Inventory.id = :inventoryId")
+    @Query("select p from Product p where p.inventory.id = :inventoryId")
     List<Product> allProductsByInventoryId(@Param("inventoryId") Integer inventoryId);
 
 }

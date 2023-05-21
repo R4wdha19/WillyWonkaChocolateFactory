@@ -10,5 +10,5 @@ import java.util.List;
 @Data
 public class TrackInventoryResponse {
    String inventoryLocation;
-   List<ProductResponseObject> productList;
+   List<ProductInventoryResponse> productList;
 }
