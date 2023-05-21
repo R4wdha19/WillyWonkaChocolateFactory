@@ -31,7 +31,7 @@ public class OrderService {
     }
 
 
-    public void customerOrder(CustomerOrderDTO customerOrderDTO){
-
+    public Order getOrderById(Integer orderId) {
+        return orderRepository.getOrderById(orderIdl);
     }
 }
