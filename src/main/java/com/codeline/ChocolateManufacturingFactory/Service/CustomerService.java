@@ -16,7 +16,8 @@ public class CustomerService {
         customerRepository.save(customer);
     }
 
-//    public Customer getCustomerById(CustomerRequestObject customerRequestObject){
-//
-//    }
+    public Customer getCustomerById(Integer customerId) {
+        return customerRepository.getCustomerById(customerId);
+    }
+
 }
