@@ -8,6 +8,8 @@ import com.codeline.ChocolateManufacturingFactory.RequestObject.IngredientReques
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class IngredientService {
     @Autowired
@@ -15,10 +17,15 @@ public class IngredientService {
     @Autowired
     ProductRepository productRepository;
 
-    public void createIngredient(IngredientRequestObject ingredientRequestObject) {
-        Ingredient ingredient = IngredientRequestObject.convert(ingredientRequestObject);
-        Product productById = productRepository.getProductById(ingredientRequestObject.getProduct().getProductId());
-        ingredient.setIngredientsOfProduct(productById);
-                ingredientRepository.save(ingredient);
+    public void createIngredient(List<IngredientRequestObject> ingredientRequestObject) {
+
+        for (IngredientRequestObject request : ingredientRequestObject) {
+            Ingredient ingredient = IngredientRequestObject.convert(request);
+
+            Product productById = productRepository.getProductById(request.getProduct().getProductId());
+            ingredient.setIngredientsOfProduct(productById);
+            ingredientRepository.save(ingredient);
+        }
+
     }
 }

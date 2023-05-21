@@ -17,25 +17,25 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     Customer getCustomerById(@Param("customerId") Integer id);
 
     @Query("select c from Customer c")
-    Customer getAllCustomers();
+    List<Customer> getAllCustomers();
 
     @Query(value = "select * from customer where created_Date Like concat (?1,%)", nativeQuery = true)
     List<Customer> getAllCustomersByCreatedDate(@Param("createdDate") String createdDate);
 
-    @Query("select c from customer c where c.isActive = 1")
+    @Query("select c from Customer c where c.isActive = 1")
     List<Customer> getAllActiveCustomers();
 
-    @Query("select c from customer c where c.isActive = 0")
+    @Query("select c from Customer c where c.isActive = 0")
     List<Customer> getAllInActiveCustomers();
 
-    @Query(value = "select c from customer c where c.id = (select Max(c.id) from Customer c )")
+    @Query(value = "select c from Customer c where c.id = (select Max(c.id) from Customer c )")
     Customer getLatestRow();
 
 
-    @Query(value = "select c from customer c where c.updatedDate = (select Max(c.updatedDate) from Customer c)")
+    @Query(value = "select c from Customer c where c.updatedDate = (select Max(c.updatedDate) from Customer c)")
     Customer getLatestUpdated();
 
-    @Query(value = "select c from customer c where c.createdDate > :createdDate")
+    @Query(value = "select c from Customer c where c.createdDate > :createdDate")
     List<Customer> getAllCustomersCreatedAfterDate(@Param("createdDate") Date createdDate);
 
     @Modifying
@@ -43,7 +43,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     @Query(value = "update Customer c Set c.isActive = false")
     void deleteAllCustomer();
 
-    @Query(value = "select c from customer c where c.createdDate > :createdDate")
+    @Query(value = "select c from Customer c where c.createdDate > :createdDate")
     List<Customer> deleteAllCustomerCreatedAfterDate(@Param("createdDate") Date createdDate);
 
 

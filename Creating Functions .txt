@@ -1,0 +1,216 @@
+{
+    "customerName":"",
+    "customerPhoneNumber":,
+    "customerEmail":,
+    "customerPaymentMethod":,
+    "customerPaidAmount":,
+    "customerRemainingAmount":
+}
+---------------------------------------------------------------
+{
+    "inventoryLocation":"",
+    "inventoryManagedBy":""
+}
+
+------------------------------------------------------------
+{
+    "productName":"",
+    "productPrice":,
+    "productAvailableQuantity":,
+    "totalQuantityOfTheProduct" : ,
+    "productReorderThreshold" : ,
+    "inventoryRequestObject":{
+"inventoryId" : 
+    }
+	
+	
+	{
+    "productName":"Kit-Kat",
+    "productPrice":11,
+    "productAvailableQuantity":11110,
+    "totalQuantityOfTheProduct" : 2000,
+    "productReorderThreshold" : 110,
+    "inventoryRequestObject":{
+"inventoryId" : 11
+    }
+
+}
+
+{
+    "productName":"Twix",
+    "productPrice":11.11,
+    "productAvailableQuantity":11000,
+    "totalQuantityOfTheProduct" : 111100,
+    "productReorderThreshold" : 1100,
+    "inventoryRequestObject":{
+"inventoryId" : 11
+    }
+
+}
+}
+-------------------------------------------------------------
+[
+    {
+        "ingredientName": "Milk Chocolate",
+        "product": {
+            "productId": 11
+        }
+    },
+ {
+        "ingredientName": "Peanuts",
+        "product": {
+            "productId": 11
+        }
+    },
+     {
+        "ingredientName": "Corn Syrup",
+        "product": {
+            "productId": 11
+        }
+    },
+     {
+        "ingredientName": "Sugar",
+        "product": {
+            "productId": 11
+        }
+    },
+     {
+        "ingredientName": "Salt",
+        "product": {
+            "productId": 11
+        }
+    },
+     {
+        "ingredientName": "Artificial Flavor",
+        "product": {
+            "productId": 11
+        }
+    },
+     {
+        "ingredientName": "Palm Oil",
+        "product": {
+            "productId": 11
+        }
+    },
+     {
+        "ingredientName": "Egg Whites",
+        "product": {
+            "productId": 11
+        }
+    }
+]
+--------------------------------------------------
+[
+    {
+        "ingredientName": "Cocoa Butter",
+        "product": {
+            "productId": 11
+        }
+    },
+ {
+        "ingredientName": "Chocolate",
+        "product": {
+            "productId": 11
+        }
+    },
+     {
+        "ingredientName": "Milk Fat",
+        "product": {
+            "productId": 11
+        }
+    },
+     {
+        "ingredientName": "Sugar",
+        "product": {
+            "productId": 11
+        }
+    },
+     {
+        "ingredientName": "Salt",
+        "product": {
+            "productId": 11
+        }
+    },
+     {
+        "ingredientName": "Artificial Flavor",
+        "product": {
+            "productId": 11
+        }
+    },
+     {
+        "ingredientName": "Nonfat Milk",
+        "product": {
+            "productId": 11
+        }
+    },
+     {
+        "ingredientName": "Yeast",
+        "product": {
+            "productId": 11
+        }
+    }
+]
+---------------------------------
+[
+    {
+        "ingredientName": "Milk Chocolate",
+        "product": {
+            "productId": 16
+        }
+    },
+ {
+        "ingredientName": "Wheat Flour",
+        "product": {
+            "productId": 16
+        }
+    },
+     {
+        "ingredientName": "Corn Syrup",
+        "product": {
+            "productId": 16
+        }
+    },
+     {
+        "ingredientName": "Sugar",
+        "product": {
+            "productId": 16
+        }
+    },
+     {
+        "ingredientName": "Salt",
+        "product": {
+            "productId": 16
+        }
+    },
+     {
+        "ingredientName": "Artificial Flavor",
+        "product": {
+            "productId": 16
+        }
+    },
+     {
+        "ingredientName": "Palm Oil",
+        "product": {
+            "productId": 16
+        }
+    },
+     {
+        "ingredientName": "Food Starch",
+        "product": {
+            "productId": 16
+        }
+    }
+]
+
+-------------------------------------------------------
+
+{
+    "orderShippingAddress":"Seeb",
+    "orderQuantity": 30 ,
+    "customer" :{
+"customerId" : 1
+    },
+    "product" :{
+"productId": 1
+    }
+}

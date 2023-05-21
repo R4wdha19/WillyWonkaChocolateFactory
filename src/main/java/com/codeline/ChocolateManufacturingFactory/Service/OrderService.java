@@ -1,5 +1,6 @@
 package com.codeline.ChocolateManufacturingFactory.Service;
 
+import com.codeline.ChocolateManufacturingFactory.DTO.CustomerOrderDTO;
 import com.codeline.ChocolateManufacturingFactory.Model.Customer;
 import com.codeline.ChocolateManufacturingFactory.Model.Order;
 import com.codeline.ChocolateManufacturingFactory.Model.Product;
@@ -27,5 +28,10 @@ public class OrderService {
         order.setProduct(product);
         order.setCustomerHistoryOfOrders(customer);
         orderRepository.save(order);
+    }
+
+
+    public void customerOrder(CustomerOrderDTO customerOrderDTO){
+
     }
 }
