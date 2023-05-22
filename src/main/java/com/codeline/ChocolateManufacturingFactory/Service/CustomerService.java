@@ -72,6 +72,7 @@ public class CustomerService {
         customer.setCustomerPaymentMethod(customerRequestObject.getCustomerPaymentMethod());
         customer.setCustomerPhoneNumber(customerRequestObject.getCustomerPhoneNumber());
         customer.setUpdatedDate(new Date());
+        customerRepository.save(customer);
     }
 
 }

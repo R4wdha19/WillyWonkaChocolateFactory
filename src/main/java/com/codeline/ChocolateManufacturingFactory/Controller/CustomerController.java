@@ -82,7 +82,7 @@ public class CustomerController {
         customerService.deleteAllCustomerCreatedAfterDate(createdDate);
     }
 
-    @RequestMapping(value = "deleteAllCustomerCreatedAfterDate", method = RequestMethod.POST)
+    @RequestMapping(value = "deleteAllCustomer", method = RequestMethod.POST)
     public void deleteAllCustomer() {
         customerService.deleteAllCustomer();
     }
@@ -94,11 +94,11 @@ public class CustomerController {
         } catch (Exception e) {
             return "Deleting Failed Please Check The Id";
         }
-        return "Customer Id " + customerId + "Deleted Successfully ";
+        return " Customer Id " + customerId + " Deleted Successfully ";
     }
 
-    @RequestMapping(value = "updateCustomerDetails", method = RequestMethod.GET)
-    public void updateCustomerDetails(CustomerRequestObject customerRequestObject) {
+    @RequestMapping(value = "updateCustomerDetails", method = RequestMethod.POST)
+    public void updateCustomerDetails(@RequestBody CustomerRequestObject customerRequestObject) {
         customerService.updateCustomerDetails(customerRequestObject);
     }
 }
