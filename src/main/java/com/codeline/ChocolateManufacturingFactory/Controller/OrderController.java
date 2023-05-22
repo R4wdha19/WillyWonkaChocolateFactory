@@ -51,7 +51,7 @@ public class OrderController {
     }
 
     @RequestMapping(value = "getAllOrdersCreatedAfterDate", method = RequestMethod.GET)
-    public List<OrderResponseObject> getAllOrdersCreatedAfterDate(Date createdDate) {
+    public List<OrderResponseObject> getAllOrdersCreatedAfterDate(@RequestParam Date createdDate) {
         return OrderResponseObject.convertRequestToListResponse(orderService.getAllOrdersCreatedAfterDate(createdDate));
     }
     @PreAuthorize("hasRole('ADMIN')")
@@ -61,7 +61,7 @@ public class OrderController {
     }
     @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "deleteAllOrdersCreatedAfterDate", method = RequestMethod.GET)
-    public void deleteAllOrdersCreatedAfterDate(Date createdDate) {
+    public void deleteAllOrdersCreatedAfterDate(@RequestParam Date createdDate) {
         orderService.deleteAllOrdersCreatedAfterDate(createdDate);
     }
 }
