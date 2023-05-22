@@ -17,7 +17,7 @@ public interface InventoryRepository extends JpaRepository<Inventory, Integer> {
      Inventory getInventoryById(@Param("inventoryId") Integer id);
 
     @Query("select i from Inventory i")
-    Inventory getAllInventories();
+    List <Inventory> getAllInventories();
 
     @Query(value = "select * from inventory where created_Date Like Concat (?1,%)", nativeQuery = true)
     List<Inventory> getAllInventoriesByCreatedDate(@Param("createdDate") String createdDate);

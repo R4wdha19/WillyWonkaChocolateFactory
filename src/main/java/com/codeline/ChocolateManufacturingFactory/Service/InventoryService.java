@@ -9,6 +9,7 @@ import com.codeline.ChocolateManufacturingFactory.ResponseObject.ProductInventor
 import com.codeline.ChocolateManufacturingFactory.ResponseObject.ProductResponseObject;
 import com.codeline.ChocolateManufacturingFactory.ResponseObject.TrackInventoryResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
@@ -56,5 +57,37 @@ public class InventoryService {
         inventoryRepository.save(inventory);
     }
 
+    public List<Inventory> getAllInventories() {
+        return inventoryRepository.getAllInventories();
+    }
 
+    public List<Inventory> getAllInventoriesByCreatedDate(String createdDate) {
+        return inventoryRepository.getAllInventoriesByCreatedDate(createdDate);
+    }
+
+    public List<Inventory> getAllInActiveInventories() {
+        return inventoryRepository.getAllInActiveInventories();
+    }
+
+    public Inventory getLatestRow() {
+        return inventoryRepository.getLatestRow();
+    }
+
+    public Inventory getLatestUpdated() {
+        return inventoryRepository.getLatestUpdated();
+    }
+
+    public List<Inventory> getAllInventoriesCreatedAfterDate(Date createdDate) {
+        return inventoryRepository.getAllInventoriesCreatedAfterDate(createdDate);
+    }
+
+    public void deleteAllInventories() {
+        inventoryRepository.deleteAllInventory();
+    }
+
+    public void deleteAllInventoriesCreatedAfterDate(Date createdDate) {
+        List<Inventory> inventoryList = inventoryRepository.deleteAllInventoriesCreatedAfterDate(createdDate);
+        inventoryList.stream().forEach(x -> x.setIsActive(false));
+        inventoryRepository.saveAll(inventoryList);
+    }
 }

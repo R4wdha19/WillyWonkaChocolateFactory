@@ -4,7 +4,6 @@ import com.codeline.ChocolateManufacturingFactory.Model.Order;
 import com.codeline.ChocolateManufacturingFactory.Model.Product;
 import com.codeline.ChocolateManufacturingFactory.Repository.OrderRepository;
 import com.codeline.ChocolateManufacturingFactory.Repository.ProductRepository;
-import com.codeline.ChocolateManufacturingFactory.Service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
