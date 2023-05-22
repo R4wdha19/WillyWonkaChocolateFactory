@@ -65,13 +65,13 @@ public class InventoryController {
 
     @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "deleteAllInventoriesCreatedAfterDate", method = RequestMethod.POST)
-    public void deleteAllInventoriesCreatedAfterDate(Date createdDate) {
+    public void deleteAllInventoriesCreatedAfterDate(@RequestParam Date createdDate) {
         inventoryService.deleteAllInventoriesCreatedAfterDate(createdDate);
     }
 
     @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "updateInventory", method = RequestMethod.POST)
-    public void updateInventory(InventoryRequestObject inventoryRequestObject) {
+    public void updateInventory(@RequestBody InventoryRequestObject inventoryRequestObject) {
         inventoryService.updateInventory(inventoryRequestObject);
     }
 }
