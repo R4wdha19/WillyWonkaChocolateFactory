@@ -6,8 +6,10 @@ import com.codeline.ChocolateManufacturingFactory.Repository.IngredientRepositor
 import com.codeline.ChocolateManufacturingFactory.Repository.ProductRepository;
 import com.codeline.ChocolateManufacturingFactory.RequestObject.IngredientRequestObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -26,5 +28,54 @@ public class IngredientService {
             ingredientRepository.save(ingredient);
         }
 
+    }
+
+    public Ingredient getIngredientById(Integer ingredientId) {
+        return ingredientRepository.getIngredientById(ingredientId);
+    }
+
+    public Ingredient getLatestRow() {
+        return ingredientRepository.getLatestRow();
+    }
+
+    public Ingredient getLatestUpdated() {
+        return ingredientRepository.getLatestUpdated();
+    }
+
+    public List<Ingredient> getAllIngredients() {
+        return ingredientRepository.getAllIngredients();
+    }
+
+    public List<Ingredient> getAllIngredientsByCreatedDate(String createdDate) {
+        return ingredientRepository.getAllIngredientsByCreatedDate(createdDate);
+    }
+
+    public List<Ingredient> getAllActiveIngredients() {
+        return ingredientRepository.getAllActiveIngredients();
+    }
+
+    public List<Ingredient> getAllInActiveIngredients() {
+        return ingredientRepository.getAllInActiveIngredients();
+    }
+
+    public List<Ingredient> getAllIngredientsCreatedAfterDate(Date createdDate) {
+        return ingredientRepository.getAllIngredientsCreatedAfterDate(createdDate);
+    }
+
+    public void deleteAllIngredient() {
+        ingredientRepository.deleteAllIngredient();
+    }
+
+    public void deleteAllIngredientCreatedAfterDate(Date createdDate) {
+        List<Ingredient> ingredientList = ingredientRepository.deleteAllIngredientCreatedAfterDate(createdDate);
+        ingredientList.stream().forEach(x -> x.setIsActive(false));
+        ingredientRepository.saveAll(ingredientList);
+    }
+
+    public void updateIngredient(IngredientRequestObject ingredientRequestObject) {
+        Ingredient ingredient = new Ingredient();
+        ingredient.setIngredientName(ingredientRequestObject.getIngredientName());
+        ingredient.setIngredientsOfProduct(ingredientRequestObject.getProduct());
+        ingredientRepository.save(ingredient);
     }
 }

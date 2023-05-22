@@ -20,4 +20,5 @@ public class IngredientController {
     public void createIngredient(@RequestBody List<IngredientRequestObject> ingredientRequestObject) {
         ingredientService.createIngredient(ingredientRequestObject);
     }
+
 }

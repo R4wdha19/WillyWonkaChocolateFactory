@@ -52,7 +52,9 @@ public class CustomerService {
     }
 
     public void deleteAllCustomerCreatedAfterDate(Date createdDate) {
-        customerRepository.deleteAllCustomerCreatedAfterDate(createdDate);
+        List<Customer> listOfCustomers =customerRepository.deleteAllCustomerCreatedAfterDate(createdDate);
+        listOfCustomers.stream().forEach(x-> x.setIsActive(false));
+        customerRepository.saveAll(listOfCustomers);
     }
 
     public void deleteAllCustomer() {

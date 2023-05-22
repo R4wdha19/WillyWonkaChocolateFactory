@@ -44,7 +44,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     void deleteAllCustomer();
 
     @Query(value = "select c from Customer c where c.createdDate > :createdDate")
-    void deleteAllCustomerCreatedAfterDate(@Param("createdDate") Date createdDate);
+    List<Customer> deleteAllCustomerCreatedAfterDate(@Param("createdDate") Date createdDate);
 
 
 
