@@ -1,6 +1,5 @@
 package com.codeline.ChocolateManufacturingFactory.Service;
 
-import com.codeline.ChocolateManufacturingFactory.DTO.CustomerOrderDTO;
 import com.codeline.ChocolateManufacturingFactory.Model.Customer;
 import com.codeline.ChocolateManufacturingFactory.Model.Order;
 import com.codeline.ChocolateManufacturingFactory.Model.Product;
@@ -12,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class OrderService {
@@ -45,5 +45,31 @@ public class OrderService {
         order.setOrderShippingAddress(orderRequestObject.getOrderShippingAddress());
         order.setUpdatedDate(new Date());
         orderRepository.save(order);
+    }
+
+    public List<Order> getAllOrders() {
+        return orderRepository.getAllOrders();
+    }
+
+    public List<Order> getAllActiveOrders() {
+        return orderRepository.getAllActiveOrders();
+    }
+
+    public List<Order> getAllInActiveOrders() {
+        return orderRepository.getAllInActiveOrders();
+    }
+
+    public List<Order> getAllOrdersCreatedAfterDate(Date createdDate) {
+        return orderRepository.getAllOrdersCreatedAfterDate(createdDate);
+    }
+
+    public void deleteAllOrder() {
+        orderRepository.deleteAllOrder();
+    }
+
+    public void deleteAllOrdersCreatedAfterDate(Date createdDate) {
+        List<Order> orderList = orderRepository.deleteAllOrdersCreatedAfterDate(createdDate);
+        orderList.stream().forEach(x -> x.setIsActive(false));
+        orderRepository.saveAll(orderList);
     }
 }

@@ -40,6 +40,7 @@ public class InventoryService {
             inventoryResponse.setInventoryLocation(inventory.getInventoryLocation());
             inventoryResponse.setProductList(allProductsByInventoryIdResponse);
             trackInventoryResponses.add(inventoryResponse);
+
         }
         return trackInventoryResponses;
 //        if(trackInventoryResponses.contains())

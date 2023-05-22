@@ -17,7 +17,7 @@ public interface OrderRepository extends JpaRepository<Order, Integer> {
     Order getOrderById (@Param("orderId") Integer id);
 
     @Query("select o from Order o")
-    Order getAllOrders();
+   List<Order>  getAllOrders();
 
     @Query(value = "select * from customer_order where created_Date Like Concat (?1,%)", nativeQuery = true)
     List<Order> getAllOrdersByCreatedDate(@Param("createdDate") String createdDate);
