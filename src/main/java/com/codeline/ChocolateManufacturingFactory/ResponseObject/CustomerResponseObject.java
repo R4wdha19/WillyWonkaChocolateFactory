@@ -19,18 +19,15 @@ public class CustomerResponseObject {
     String name;
     String contactNumber;
     String email;
-    String payment;
-    Double paidAmount;
-    Double remainingAmount;
+    String paymentType;
+
     public static CustomerResponseObject convertRequestToResponse(Customer customerRequestFromUser) {
         return CustomerResponseObject.builder()
                 .id(customerRequestFromUser.getCustomerId())
                 .name(customerRequestFromUser.getCustomerName())
                 .contactNumber(customerRequestFromUser.getCustomerPhoneNumber())
                 .email(customerRequestFromUser.getCustomerEmail())
-                .payment(customerRequestFromUser.getCustomerPaymentMethod())
-                .paidAmount(customerRequestFromUser.getCustomerPaidAmount())
-                .remainingAmount(customerRequestFromUser.getCustomerRemainingAmount())
+                .paymentType(customerRequestFromUser.getCustomerPaymentMethod())
                 .build();
     }
 

@@ -21,6 +21,8 @@ public class OrderResponseObject {
     Integer quantity;
     Customer customer;
     Product product;
+    Double paidAmount;
+    Double remainingAmount;
 
     public static OrderResponseObject convertRequestToResponse(Order requestFromUser) {
         return OrderResponseObject.builder()

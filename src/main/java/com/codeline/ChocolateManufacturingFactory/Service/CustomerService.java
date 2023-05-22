@@ -51,19 +51,27 @@ public class CustomerService {
         return customerRepository.getAllCustomersCreatedAfterDate(createdDate);
     }
 
-    public List<Customer> deleteAllCustomerCreatedAfterDate(Date createdDate) {
-        return customerRepository.deleteAllCustomerCreatedAfterDate(createdDate);
+    public void deleteAllCustomerCreatedAfterDate(Date createdDate) {
+        customerRepository.deleteAllCustomerCreatedAfterDate(createdDate);
     }
 
     public void deleteAllCustomer() {
         customerRepository.deleteAllCustomer();
     }
 
-    public String deleteCustomerById(Integer customerId){
+    public String deleteCustomerById(Integer customerId) {
         Customer customer = customerRepository.getCustomerById(customerId);
         customer.setIsActive(false);
-        return "Customer Id "+customerId +"Deleted Successfully ";
+        customerRepository.save(customer);
+        return "Customer Id " + customerId + "Deleted Successfully ";
     }
 
+    public void updateCustomerDetails(CustomerRequestObject customerRequestObject) {
+        Customer customer = customerRepository.getCustomerById(customerRequestObject.getCustomerId());
+        customer.setCustomerEmail(customerRequestObject.getCustomerEmail());
+        customer.setCustomerPaymentMethod(customerRequestObject.getCustomerPaymentMethod());
+        customer.setCustomerPhoneNumber(customerRequestObject.getCustomerPhoneNumber());
+        customer.setUpdatedDate(new Date());
+    }
 
 }

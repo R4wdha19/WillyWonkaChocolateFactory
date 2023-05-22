@@ -24,4 +24,6 @@ public class Order extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id")
     Product product;
+    Double customerPaidAmount;
+    Double customerRemainingAmount;
 }

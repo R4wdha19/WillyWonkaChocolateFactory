@@ -18,8 +18,7 @@ public class CustomerRequestObject {
     String customerPhoneNumber;
     String customerEmail;
     String customerPaymentMethod;
-    Double customerPaidAmount;
-    Double customerRemainingAmount;
+
 
     public static Customer convert(CustomerRequestObject request) {
 
@@ -29,8 +28,6 @@ public class CustomerRequestObject {
         customer.setCustomerPhoneNumber(request.getCustomerPhoneNumber());
         customer.setCustomerEmail(request.getCustomerEmail());
         customer.setCustomerPaymentMethod(request.getCustomerPaymentMethod());
-        customer.setCustomerPaidAmount(request.getCustomerPaidAmount());
-        customer.setCustomerRemainingAmount(request.getCustomerRemainingAmount());
         customer.setIsActive(true);
         customer.setCreatedDate(new Date());
         return customer;

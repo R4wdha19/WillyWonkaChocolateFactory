@@ -20,12 +20,16 @@ public class OrderRequestObject {
     Integer orderQuantity;
     Customer customer;
     Product product;
+    Double customerPaidAmount;
+    Double customerRemainingAmount;
+
     public static Order convert(OrderRequestObject request) {
 
         Order order = new Order();
         order.setOrderShippingAddress(request.getOrderShippingAddress());
         order.setOrderQuantity(request.getOrderQuantity());
-//        order.setCustomerHistoryOfOrders(request.getCustomer());
+        order.setCustomerPaidAmount(request.getCustomerPaidAmount());
+        order.setCustomerRemainingAmount(request.getCustomerRemainingAmount());
         order.setIsActive(true);
         order.setCreatedDate(new Date());
         return order;
