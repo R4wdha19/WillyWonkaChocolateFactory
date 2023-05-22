@@ -47,4 +47,6 @@ public interface CustomerRepository extends JpaRepository<Customer, Integer> {
     List<Customer> deleteAllCustomerCreatedAfterDate(@Param("createdDate") Date createdDate);
 
 
+
+
 }
