@@ -8,6 +8,7 @@ import com.codeline.ChocolateManufacturingFactory.RequestObject.IngredientReques
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Date;
 import java.util.List;
@@ -73,9 +74,9 @@ public class IngredientService {
     }
 
     public void updateIngredient(IngredientRequestObject ingredientRequestObject) {
-        Ingredient ingredient = new Ingredient();
-        ingredient.setIngredientName(ingredientRequestObject.getIngredientName());
-        ingredient.setIngredientsOfProduct(ingredientRequestObject.getProduct());
-        ingredientRepository.save(ingredient);
+        Ingredient ingredientById = ingredientRepository.getIngredientById(ingredientRequestObject.getIngredientId());
+        ingredientById.setIngredientName(ingredientRequestObject.getIngredientName());
+        ingredientById.setIngredientsOfProduct(ingredientRequestObject.getProduct());
+        ingredientRepository.save(ingredientById);
     }
 }
