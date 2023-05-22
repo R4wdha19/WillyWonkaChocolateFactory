@@ -9,11 +9,11 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 @SpringBootTest
 class IngredientControllerTest {
     @Autowired
     IngredientController ingredientController;
-
 
 
     @Test
@@ -22,16 +22,10 @@ class IngredientControllerTest {
         assertNotNull(latestIngredientRow);
     }
 
-//    @Test
-//    void testingTheStatusFromGetCourseById() throws Exception {
-//        IngredientResponseObject ingredientById = ingredientController.getIngredientById(5);
-//        Boolean status = ingredientById.getProduct().getIsActive();
-//        assertTrue(status);
-//    }
 
     @Test
     void testingSizeOfAllActiveIngredient() {
         List<IngredientResponseObject> allActiveIngredients = ingredientController.getAllActiveIngredients();
-        assertEquals(128,allActiveIngredients.size());
+        assertEquals(128, allActiveIngredients.size());
     }
 }

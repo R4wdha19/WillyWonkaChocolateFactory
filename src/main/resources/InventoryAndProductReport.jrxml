@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.20.1.final using JasperReports Library version 6.20.1-7584acb244139816654f64e2fd57a00d3e31921e  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="InventoryAndProductReport" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ecc4a305-2ef0-4142-aeb3-81222e689a46">
+    <field name="inventoryLocation" class="java.lang.String">
+    </field>
+    <field name="productName" class="java.lang.String">
+    </field>
+    <field name="productAvailableQuantity" class="java.lang.Integer">
+    </field>
+    <field name="productReorderThreshold" class="java.lang.Integer">
+    </field>
+    <background>
+        <band/>
+    </background>
+    <title>
+        <band height="72">
+            <frame>
+                <reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#6B9131" uuid="d2058415-acfd-4a10-a2c7-4a3db79dcb94"/>
+                <staticText>
+                    <reportElement x="20" y="20" width="560" height="43" forecolor="#FFFFFF" uuid="36b2be6a-0b6f-4120-80f7-bf2c0957636c"/>
+                    <textElement textAlignment="Center">
+                        <font size="34" isBold="true"/>
+                    </textElement>
+                    <text><![CDATA[List Of Products In Each Inventory]]></text>
+                </staticText>
+                <staticText>
+                    <reportElement x="30" y="61" width="545" height="20" forecolor="#FFFFFF" uuid="fc5a6867-1631-4ec5-b5cc-e672584a1bc7"/>
+                    <textElement textAlignment="Center">
+                        <font size="14" isBold="false"/>
+                    </textElement>
+                    <text><![CDATA[Report To show list of Products In Each Inventory]]></text>
+                </staticText>
+            </frame>
+        </band>
+    </title>
+    <pageHeader>
+        <band height="13"/>
+    </pageHeader>
+    <columnHeader>
+        <band height="21">
+            <line>
+                <reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="38e94385-3bb3-4223-8a99-7bdca6db7a69"/>
+            </line>
+            <staticText>
+                <reportElement mode="Opaque" x="0" y="0" width="138" height="20" forecolor="#111412" backcolor="#E6E6E6" uuid="cebf82c2-1007-4729-97c3-4fe4517ba27b">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2c6feee5-7079-4b8f-a6c2-86ba303b75d5"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Inventory Location]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="138" y="0" width="138" height="20" forecolor="#0D0D0D" backcolor="#E6E6E6" uuid="074908ac-27ed-4597-9c66-6b9fc1670a07">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe01fb58-6261-4bcb-852f-1854e39fdb15"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Product Name]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="276" y="0" width="138" height="20" forecolor="#070808" backcolor="#E6E6E6" uuid="3a912e4b-9c7d-4fcf-a33a-df466370e412">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e07c1e91-27c4-4e91-8a07-85e4f27eaf31"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Available Quantity ]]></text>
+            </staticText>
+            <staticText>
+                <reportElement mode="Opaque" x="414" y="0" width="138" height="20" forecolor="#111212" backcolor="#E6E6E6" uuid="b1180181-540e-457f-89f4-833e817801a5">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="81b79a61-efa3-46a4-abc3-7342b614cc94"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Reorder Threshold]]></text>
+            </staticText>
+        </band>
+    </columnHeader>
+    <detail>
+        <band height="20">
+            <line>
+                <reportElement positionType="FixRelativeToBottom" x="0" y="19" width="555" height="1" uuid="04638a57-e52b-411f-86a0-c8de25a0ca76"/>
+            </line>
+            <textField textAdjust="StretchHeight">
+                <reportElement x="0" y="0" width="138" height="20" uuid="6ab2934a-30c3-4b3c-b728-96cd96985f26">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="2c6feee5-7079-4b8f-a6c2-86ba303b75d5"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{inventoryLocation}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight">
+                <reportElement x="138" y="0" width="138" height="20" uuid="1733212e-20d5-4c5e-9f3f-2e5f707e7915">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="fe01fb58-6261-4bcb-852f-1854e39fdb15"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{productName}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight">
+                <reportElement x="276" y="0" width="138" height="20" uuid="7236d576-9459-4ba3-891b-3eb80b29d97e">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="e07c1e91-27c4-4e91-8a07-85e4f27eaf31"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{productAvailableQuantity}]]></textFieldExpression>
+            </textField>
+            <textField textAdjust="StretchHeight">
+                <reportElement x="414" y="0" width="138" height="20" uuid="ad4f12dc-4c60-44d3-9142-cc4c6d2e1cbd">
+                    <property name="com.jaspersoft.studio.spreadsheet.connectionID" value="81b79a61-efa3-46a4-abc3-7342b614cc94"/>
+                </reportElement>
+                <textElement textAlignment="Center">
+                    <font size="14"/>
+                </textElement>
+                <textFieldExpression><![CDATA[$F{productReorderThreshold}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+    <columnFooter>
+        <band/>
+    </columnFooter>
+    <pageFooter>
+        <band height="17">
+            <textField>
+                <reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="1704bb4a-7825-4f94-ad4f-33cfeff7d700"/>
+                <textElement textAlignment="Right"/>
+                <textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+            </textField>
+            <textField evaluationTime="Report">
+                <reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="ba83a967-b77c-425c-a824-51049d58d232"/>
+                <textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+            </textField>
+            <textField pattern="EEEEE dd MMMMM yyyy">
+                <reportElement x="0" y="4" width="100" height="13" uuid="6a53ac68-4bf2-46fd-9316-af71083faa6f"/>
+                <textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+    <summary>
+        <band/>
+    </summary>
+</jasperReport>
