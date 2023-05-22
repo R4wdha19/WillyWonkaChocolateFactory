@@ -1,9 +1,7 @@
 package com.codeline.ChocolateManufacturingFactory.Controller;
 
-import com.codeline.ChocolateManufacturingFactory.Model.Customer;
 import com.codeline.ChocolateManufacturingFactory.Model.Order;
 import com.codeline.ChocolateManufacturingFactory.RequestObject.OrderRequestObject;
-import com.codeline.ChocolateManufacturingFactory.ResponseObject.CustomerResponseObject;
 import com.codeline.ChocolateManufacturingFactory.ResponseObject.OrderResponseObject;
 import com.codeline.ChocolateManufacturingFactory.Service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;

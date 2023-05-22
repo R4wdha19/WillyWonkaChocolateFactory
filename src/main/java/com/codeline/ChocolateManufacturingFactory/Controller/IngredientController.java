@@ -6,10 +6,7 @@ import com.codeline.ChocolateManufacturingFactory.ResponseObject.IngredientRespo
 import com.codeline.ChocolateManufacturingFactory.Service.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.List;
@@ -26,7 +23,7 @@ public class IngredientController {
     }
 
     @RequestMapping(value = "getIngredientById", method = RequestMethod.GET)
-    public IngredientResponseObject getIngredientById(Integer ingredientId) {
+    public IngredientResponseObject getIngredientById(@RequestParam Integer ingredientId) {
         Ingredient ingredient = ingredientService.getIngredientById(ingredientId);
         IngredientResponseObject ingredientResponse = IngredientResponseObject.convertRequestToResponse(ingredient);
         return ingredientResponse;
@@ -54,7 +51,7 @@ public class IngredientController {
     }
 
     @RequestMapping(value = "getAllIngredientsByCreatedDate", method = RequestMethod.GET)
-    public List<IngredientResponseObject> getAllIngredientsByCreatedDate(String createdDate) {
+    public List<IngredientResponseObject> getAllIngredientsByCreatedDate(@RequestParam String createdDate) {
         List<Ingredient> ingredientList = ingredientService.getAllIngredientsByCreatedDate(createdDate);
         List<IngredientResponseObject> ingredientResponseList = IngredientResponseObject.convertRequestListToResponseList(ingredientList);
         return ingredientResponseList;
@@ -68,7 +65,7 @@ public class IngredientController {
     }
 
     @RequestMapping(value = "getAllIngredientsCreatedAfterDate", method = RequestMethod.GET)
-    public List<IngredientResponseObject> getAllIngredientsCreatedAfterDate(Date createdDate) {
+    public List<IngredientResponseObject> getAllIngredientsCreatedAfterDate(@RequestParam Date createdDate) {
         List<Ingredient> ingredientList = ingredientService.getAllIngredientsCreatedAfterDate(createdDate);
         List<IngredientResponseObject> ingredientResponseList = IngredientResponseObject.convertRequestListToResponseList(ingredientList);
         return ingredientResponseList;
@@ -87,7 +84,7 @@ public class IngredientController {
     }
     @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "deleteAllIngredientCreatedAfterDate", method = RequestMethod.POST)
-    public void deleteAllIngredientCreatedAfterDate(Date createdDate) {
+    public void deleteAllIngredientCreatedAfterDate(@RequestParam Date createdDate) {
         ingredientService.deleteAllIngredientCreatedAfterDate(createdDate);
     }
     @PreAuthorize("hasRole('ADMIN')")
