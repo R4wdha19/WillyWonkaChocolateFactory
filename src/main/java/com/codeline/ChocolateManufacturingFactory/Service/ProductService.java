@@ -13,6 +13,7 @@ import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class ProductService {
@@ -44,5 +45,34 @@ public class ProductService {
         product.setUpdatedDate(new Date());
         productRepository.save(product);
 
+    }
+
+    public List<Product> getAllProducts() {
+        return productRepository.getAllProducts();
+    }
+
+    public List<Product> getAllProductsByCreatedDate(String createdDate) {
+        return productRepository.getAllProductsByCreatedDate(createdDate);
+    }
+
+    public List<Product> getAllInActiveProducts() {
+        return productRepository.getAllInActiveProducts();
+    }
+   public List<Product> getAllActiveProducts() {
+        return productRepository.getAllActiveProducts();
+    }
+
+    public List<Product> getAllProductsCreatedAfterDate(Date createdDate) {
+        return productRepository.getAllProductsCreatedAfterDate(createdDate);
+    }
+
+    public void deleteAllProduct() {
+        productRepository.deleteAllProduct();
+    }
+
+    public void deleteAllProductsCreatedAfterDate(Date createdDate) {
+        List<Product> productList= productRepository.deleteAllProductsCreatedAfterDate(createdDate);
+        productList.stream().forEach(x-> x.setIsActive(false));
+        productRepository.saveAll(productList);
     }
 }

@@ -1,6 +1,5 @@
 package com.codeline.ChocolateManufacturingFactory.Repository;
 
-import com.codeline.ChocolateManufacturingFactory.Model.Inventory;
 import com.codeline.ChocolateManufacturingFactory.Model.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -18,7 +17,7 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     Product getProductById(@Param("productId") Integer id);
 
     @Query("select p from Product p")
-    Product getAllProducts();
+   List<Product>  getAllProducts();
 
     @Query(value = "select * from Product where created_Date Like Concat (?1,%)", nativeQuery = true)
     List<Product> getAllProductsByCreatedDate(@Param("createdDate") String createdDate);
