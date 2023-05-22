@@ -11,6 +11,8 @@ import com.codeline.ChocolateManufacturingFactory.RequestObject.OrderRequestObje
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
+
 @Service
 public class OrderService {
     @Autowired
@@ -33,5 +35,15 @@ public class OrderService {
 
     public Order getOrderById(Integer orderId) {
         return orderRepository.getOrderById(orderId);
+    }
+
+    public void updateOrder(OrderRequestObject orderRequestObject) {
+        Order order = getOrderById(orderRequestObject.getOrderId());
+        order.setCustomerPaidAmount(orderRequestObject.getCustomerPaidAmount());
+        order.setCustomerRemainingAmount(orderRequestObject.getCustomerRemainingAmount());
+        order.setOrderQuantity(orderRequestObject.getOrderQuantity());
+        order.setOrderShippingAddress(orderRequestObject.getOrderShippingAddress());
+        order.setUpdatedDate(new Date());
+        orderRepository.save(order);
     }
 }

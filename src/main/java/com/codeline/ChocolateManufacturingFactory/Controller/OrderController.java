@@ -7,6 +7,7 @@ import com.codeline.ChocolateManufacturingFactory.ResponseObject.CustomerRespons
 import com.codeline.ChocolateManufacturingFactory.ResponseObject.OrderResponseObject;
 import com.codeline.ChocolateManufacturingFactory.Service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -19,10 +20,16 @@ public class OrderController {
     public void createOrder(@RequestBody OrderRequestObject orderRequestObject) {
         orderService.createOrder(orderRequestObject);
     }
+
     @RequestMapping(value = "getOrderById", method = RequestMethod.POST)
     public OrderResponseObject getOrderById(@RequestParam Integer orderId) {
         Order orderById = orderService.getOrderById(orderId);
         OrderResponseObject OrderResponse = OrderResponseObject.convertRequestToResponse(orderById);
         return OrderResponse;
+    }
+
+    @PreAuthorize("hasRole('ADMIN')")
+    public void updateOrder(@RequestBody OrderRequestObject orderRequestObject) {
+        orderService.updateOrder(orderRequestObject);
     }
 }

@@ -5,6 +5,7 @@ import com.codeline.ChocolateManufacturingFactory.RequestObject.CustomerRequestO
 import com.codeline.ChocolateManufacturingFactory.ResponseObject.CustomerResponseObject;
 import com.codeline.ChocolateManufacturingFactory.Service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
@@ -76,17 +77,17 @@ public class CustomerController {
         List<CustomerResponseObject> customerResponseList = CustomerResponseObject.convertRequestListToResponseList(listOfCustomers);
         return customerResponseList;
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "deleteAllCustomerCreatedAfterDate", method = RequestMethod.POST)
     public void deleteAllCustomerCreatedAfterDate(Date createdDate) {
         customerService.deleteAllCustomerCreatedAfterDate(createdDate);
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "deleteAllCustomer", method = RequestMethod.POST)
     public void deleteAllCustomer() {
         customerService.deleteAllCustomer();
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "deleteCustomerById", method = RequestMethod.GET)
     public String deleteCustomerById(Integer customerId) {
         try {
@@ -96,7 +97,7 @@ public class CustomerController {
         }
         return " Customer Id " + customerId + " Deleted Successfully ";
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "updateCustomerDetails", method = RequestMethod.POST)
     public void updateCustomerDetails(@RequestBody CustomerRequestObject customerRequestObject) {
         customerService.updateCustomerDetails(customerRequestObject);

@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -29,7 +30,7 @@ public class InventoryService {
     }
 
     public List<TrackInventoryResponse> trackInventoryLevels() {
-      List<TrackInventoryResponse> trackInventoryResponses = new ArrayList<>();
+        List<TrackInventoryResponse> trackInventoryResponses = new ArrayList<>();
         List<Inventory> allInventories = inventoryRepository.getAllActiveInventories();
         for (Inventory inventory : allInventories) {
             List<Product> allProductsByInventoryId = productRepository.allProductsByInventoryId(inventory.getInventoryId());
@@ -43,6 +44,17 @@ public class InventoryService {
 //        if(trackInventoryResponses.contains())
     }
 
+    public Inventory getInventoryById(Integer inventoryId) {
+        return inventoryRepository.getInventoryById(inventoryId);
+    }
+
+    public void updateInventory(InventoryRequestObject inventoryRequestObject) {
+        Inventory inventory = getInventoryById(inventoryRequestObject.getInventoryId());
+        inventory.setInventoryManagedBy(inventoryRequestObject.getInventoryManagedBy());
+        inventory.setInventoryLocation(inventoryRequestObject.getInventoryLocation());
+        inventory.setUpdatedDate(new Date());
+        inventoryRepository.save(inventory);
+    }
 
 
 }

@@ -5,6 +5,7 @@ import com.codeline.ChocolateManufacturingFactory.RequestObject.IngredientReques
 import com.codeline.ChocolateManufacturingFactory.ResponseObject.IngredientResponseObject;
 import com.codeline.ChocolateManufacturingFactory.Service.IngredientService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -72,7 +73,7 @@ public class IngredientController {
         List<IngredientResponseObject> ingredientResponseList = IngredientResponseObject.convertRequestListToResponseList(ingredientList);
         return ingredientResponseList;
     }
-
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "deleteAllIngredient", method = RequestMethod.POST)
     public void deleteAllIngredient() {
         ingredientService.deleteAllIngredient();
@@ -84,11 +85,12 @@ public class IngredientController {
         List<IngredientResponseObject> ingredientResponseList = IngredientResponseObject.convertRequestListToResponseList(ingredientList);
         return ingredientResponseList;
     }
-
-    @RequestMapping(value = "getAllInActiveIngredients", method = RequestMethod.POST)
+    @PreAuthorize("hasRole('ADMIN')")
+    @RequestMapping(value = "deleteAllIngredientCreatedAfterDate", method = RequestMethod.POST)
     public void deleteAllIngredientCreatedAfterDate(Date createdDate) {
         ingredientService.deleteAllIngredientCreatedAfterDate(createdDate);
     }
+    @PreAuthorize("hasRole('ADMIN')")
     @RequestMapping(value = "updateIngredient", method = RequestMethod.POST)
     public void updateIngredient(@RequestBody IngredientRequestObject ingredientRequestObject) {
         ingredientService.updateIngredient(ingredientRequestObject);
