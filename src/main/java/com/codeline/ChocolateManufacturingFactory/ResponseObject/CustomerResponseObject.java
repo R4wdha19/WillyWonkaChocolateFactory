@@ -1,7 +1,6 @@
 package com.codeline.ChocolateManufacturingFactory.ResponseObject;
 
 import com.codeline.ChocolateManufacturingFactory.Model.Customer;
-import com.codeline.ChocolateManufacturingFactory.Model.Ingredient;
 import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
@@ -24,10 +23,10 @@ public class CustomerResponseObject {
     public static CustomerResponseObject convertRequestToResponse(Customer customerRequestFromUser) {
         return CustomerResponseObject.builder()
                 .id(customerRequestFromUser.getCustomerId())
-                .name(customerRequestFromUser.getCustomerName())
-                .contactNumber(customerRequestFromUser.getCustomerPhoneNumber())
-                .email(customerRequestFromUser.getCustomerEmail())
-                .paymentType(customerRequestFromUser.getCustomerPaymentMethod())
+                .name(customerRequestFromUser.getName())
+                .contactNumber(customerRequestFromUser.getPhoneNumber())
+                .email(customerRequestFromUser.getEmail())
+                .paymentType(customerRequestFromUser.getPaymentMethod())
                 .build();
     }
 

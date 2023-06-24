@@ -24,10 +24,10 @@ public class CustomerRequestObject {
 
         Customer customer = new Customer();
 
-        customer.setCustomerName(request.getCustomerName());
-        customer.setCustomerPhoneNumber(request.getCustomerPhoneNumber());
-        customer.setCustomerEmail(request.getCustomerEmail());
-        customer.setCustomerPaymentMethod(request.getCustomerPaymentMethod());
+        customer.setName(request.getCustomerName());
+        customer.setPhoneNumber(request.getCustomerPhoneNumber());
+        customer.setEmail(request.getCustomerEmail());
+        customer.setPaymentMethod(request.getCustomerPaymentMethod());
         customer.setIsActive(true);
         customer.setCreatedDate(new Date());
         return customer;
