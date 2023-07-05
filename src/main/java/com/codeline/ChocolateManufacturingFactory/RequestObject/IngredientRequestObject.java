@@ -14,14 +14,14 @@ import java.util.List;
 @Getter
 @Data
 public class IngredientRequestObject {
-    Integer ingredientId;
-    String ingredientName;
+    Integer id;
+    String name;
     Product product;
     public static Ingredient convert(IngredientRequestObject request) {
 
         Ingredient ingredient = new Ingredient();
 
-        ingredient.setIngredientName(request.getIngredientName());
+        ingredient.setName(request.getName());
         ingredient.setIsActive(true);
         ingredient.setCreatedDate(new Date());
         return ingredient;

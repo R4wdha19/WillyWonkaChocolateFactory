@@ -22,8 +22,8 @@ public class IngredientResponseObject {
 
     public static IngredientResponseObject convertRequestToResponse(Ingredient ingredientRequestFromUser) {
         return IngredientResponseObject.builder()
-                .id(ingredientRequestFromUser.getIngredientId())
-                .name(ingredientRequestFromUser.getIngredientName())
+                .id(ingredientRequestFromUser.getId())
+                .name(ingredientRequestFromUser.getName())
                 .product(ingredientRequestFromUser.getIngredientsOfProduct())
                 .build();
     }

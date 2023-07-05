@@ -72,8 +72,8 @@ public class IngredientService {
     }
 
     public void updateIngredient(IngredientRequestObject ingredientRequestObject) {
-        Ingredient ingredientById = ingredientRepository.getIngredientById(ingredientRequestObject.getIngredientId());
-        ingredientById.setIngredientName(ingredientRequestObject.getIngredientName());
+        Ingredient ingredientById = ingredientRepository.getIngredientById(ingredientRequestObject.getId());
+        ingredientById.setName(ingredientRequestObject.getName());
         ingredientById.setIngredientsOfProduct(ingredientRequestObject.getProduct());
         ingredientRepository.save(ingredientById);
     }

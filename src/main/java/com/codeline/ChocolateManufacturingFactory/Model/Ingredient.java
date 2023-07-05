@@ -15,7 +15,7 @@ public class Ingredient extends BaseEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     Integer id;
-    @Column(name = "ingredient_id")
+    @Column(name = "ingredient_name")
     String name;
     @ManyToOne
     @JoinColumn(name = "product_id", referencedColumnName = "id")
