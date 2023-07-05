@@ -26,9 +26,9 @@ public class OrderResponseObject {
 
     public static OrderResponseObject convertRequestToResponse(Order requestFromUser) {
         return OrderResponseObject.builder()
-                .id(requestFromUser.getOrderId())
-                .address(requestFromUser.getOrderShippingAddress())
-                .quantity(requestFromUser.getOrderQuantity())
+                .id(requestFromUser.getId())
+                .address(requestFromUser.getShippingAddress())
+                .quantity(requestFromUser.getQuantity())
                 .customer(requestFromUser.getCustomerHistoryOfOrders())
                 .product(requestFromUser.getProduct())
                 .build();

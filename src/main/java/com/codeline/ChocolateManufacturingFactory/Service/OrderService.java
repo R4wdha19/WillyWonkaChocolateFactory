@@ -39,10 +39,10 @@ public class OrderService {
 
     public void updateOrder(OrderRequestObject orderRequestObject) {
         Order order = getOrderById(orderRequestObject.getOrderId());
-        order.setCustomerPaidAmount(orderRequestObject.getCustomerPaidAmount());
-        order.setCustomerRemainingAmount(orderRequestObject.getCustomerRemainingAmount());
-        order.setOrderQuantity(orderRequestObject.getOrderQuantity());
-        order.setOrderShippingAddress(orderRequestObject.getOrderShippingAddress());
+        order.setPaidAmount(orderRequestObject.getCustomerPaidAmount());
+        order.setRemainingAmount(orderRequestObject.getCustomerRemainingAmount());
+        order.setQuantity(orderRequestObject.getOrderQuantity());
+        order.setShippingAddress(orderRequestObject.getOrderShippingAddress());
         order.setUpdatedDate(new Date());
         orderRepository.save(order);
     }

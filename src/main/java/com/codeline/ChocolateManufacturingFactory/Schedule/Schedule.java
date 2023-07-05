@@ -22,7 +22,7 @@ public class Schedule {
         List<Order> ordersByCreatedDate = orderRepository.getAllOrdersByCreatedDate(new Date().toString());
         for (Order order : ordersByCreatedDate) {
             Integer productCurrentQuantity = order.getProduct().getAvailableQuantity();
-            Integer productOrderedQuantity = order.getOrderQuantity();
+            Integer productOrderedQuantity = order.getQuantity();
             Integer productUpdatedQuantity = productCurrentQuantity - productOrderedQuantity;
             Product productTotalRemainingQuantity = order.getProduct();
             productTotalRemainingQuantity.setAvailableQuantity(productUpdatedQuantity);

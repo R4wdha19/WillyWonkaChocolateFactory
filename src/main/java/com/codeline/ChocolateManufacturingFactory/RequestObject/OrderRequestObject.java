@@ -26,10 +26,10 @@ public class OrderRequestObject {
     public static Order convert(OrderRequestObject request) {
 
         Order order = new Order();
-        order.setOrderShippingAddress(request.getOrderShippingAddress());
-        order.setOrderQuantity(request.getOrderQuantity());
-        order.setCustomerPaidAmount(request.getCustomerPaidAmount());
-        order.setCustomerRemainingAmount(request.getCustomerRemainingAmount());
+        order.setShippingAddress(request.getOrderShippingAddress());
+        order.setQuantity(request.getOrderQuantity());
+        order.setPaidAmount(request.getCustomerPaidAmount());
+        order.setRemainingAmount(request.getCustomerRemainingAmount());
         order.setIsActive(true);
         order.setCreatedDate(new Date());
         return order;
