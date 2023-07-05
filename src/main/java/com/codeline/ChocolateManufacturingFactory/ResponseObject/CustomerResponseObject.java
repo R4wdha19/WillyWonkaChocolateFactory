@@ -22,7 +22,7 @@ public class CustomerResponseObject {
 
     public static CustomerResponseObject convertRequestToResponse(Customer customerRequestFromUser) {
         return CustomerResponseObject.builder()
-                .id(customerRequestFromUser.getCustomerId())
+                .id(customerRequestFromUser.getId())
                 .name(customerRequestFromUser.getName())
                 .contactNumber(customerRequestFromUser.getPhoneNumber())
                 .email(customerRequestFromUser.getEmail())

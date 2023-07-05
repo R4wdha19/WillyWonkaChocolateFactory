@@ -69,10 +69,10 @@ public class CustomerService {
     }
 
     public void updateCustomerDetails(CustomerRequestObject customerRequestObject) {
-        Customer customer = customerRepository.getCustomerById(customerRequestObject.getCustomerId());
-        customer.setEmail(customerRequestObject.getCustomerEmail());
-        customer.setPaymentMethod(customerRequestObject.getCustomerPaymentMethod());
-        customer.setPhoneNumber(customerRequestObject.getCustomerPhoneNumber());
+        Customer customer = customerRepository.getCustomerById(customerRequestObject.getId());
+        customer.setEmail(customerRequestObject.getEmail());
+        customer.setPaymentMethod(customerRequestObject.getPaymentMethod());
+        customer.setPhoneNumber(customerRequestObject.getPhoneNumber());
         customer.setUpdatedDate(new Date());
         customerRepository.save(customer);
     }

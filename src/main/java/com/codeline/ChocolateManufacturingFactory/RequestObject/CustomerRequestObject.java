@@ -13,21 +13,20 @@ import java.util.List;
 @Getter
 @Data
 public class CustomerRequestObject {
-    Integer customerId;
-    String customerName;
-    String customerPhoneNumber;
-    String customerEmail;
-    String customerPaymentMethod;
+    Integer id;
+    String name;
+    String phoneNumber;
+    String email;
+    String paymentMethod;
 
 
     public static Customer convert(CustomerRequestObject request) {
 
         Customer customer = new Customer();
-
-        customer.setName(request.getCustomerName());
-        customer.setPhoneNumber(request.getCustomerPhoneNumber());
-        customer.setEmail(request.getCustomerEmail());
-        customer.setPaymentMethod(request.getCustomerPaymentMethod());
+        customer.setName(request.getName());
+        customer.setPhoneNumber(request.getPhoneNumber());
+        customer.setEmail(request.getEmail());
+        customer.setPaymentMethod(request.getPaymentMethod());
         customer.setIsActive(true);
         customer.setCreatedDate(new Date());
         return customer;

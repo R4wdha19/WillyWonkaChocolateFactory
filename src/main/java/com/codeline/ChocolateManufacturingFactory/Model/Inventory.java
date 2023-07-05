@@ -10,14 +10,15 @@ import javax.persistence.*;
 @Setter
 @Getter
 @Entity
-public class Inventory extends BaseEntity{
+public class Inventory extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    Integer inventoryId;
-    String inventoryLocation;
-    String inventoryManagedBy;
-
+    Integer id;
+    @Column(name = "inventory_location")
+    String location;
+    @Column(name = "inventory_managed_By")
+    String managedBy;
 
 
 }
