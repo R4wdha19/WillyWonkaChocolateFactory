@@ -1,15 +1,12 @@
 package com.codeline.ChocolateManufacturingFactory.Service;
 
 import com.codeline.ChocolateManufacturingFactory.Model.Inventory;
-import com.codeline.ChocolateManufacturingFactory.Model.Order;
 import com.codeline.ChocolateManufacturingFactory.Model.Product;
 import com.codeline.ChocolateManufacturingFactory.Repository.InventoryRepository;
 import com.codeline.ChocolateManufacturingFactory.Repository.ProductRepository;
 import com.codeline.ChocolateManufacturingFactory.RequestObject.InventoryRequestObject;
-import com.codeline.ChocolateManufacturingFactory.RequestObject.OrderRequestObject;
 import com.codeline.ChocolateManufacturingFactory.RequestObject.ProductRequestObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
@@ -38,9 +35,9 @@ public class ProductService {
     public void updateProduct(ProductRequestObject productRequestObject) {
         Product product = getProductById(productRequestObject.getProductId());
         product.setProductName(productRequestObject.getProductName());
-        product.setProductAvailableQuantity(productRequestObject.getProductAvailableQuantity());
-        product.setProductPrice(productRequestObject.getProductPrice());
-        product.setProductReorderThreshold(productRequestObject.getProductReorderThreshold());
+        product.setAvailableQuantity(productRequestObject.getProductAvailableQuantity());
+        product.setPrice(productRequestObject.getProductPrice());
+        product.setReorderThreshold(productRequestObject.getProductReorderThreshold());
         product.setInventory(InventoryRequestObject.convert(productRequestObject.getInventoryRequestObject()));
         product.setUpdatedDate(new Date());
         productRepository.save(product);

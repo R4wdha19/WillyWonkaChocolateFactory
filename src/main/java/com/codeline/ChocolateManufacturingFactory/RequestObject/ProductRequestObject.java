@@ -23,10 +23,10 @@ public class ProductRequestObject {
     public static Product convert(ProductRequestObject request) {
         Product product = new Product();
         product.setProductName(request.getProductName());
-        product.setProductPrice(request.getProductPrice());
-        product.setProductAvailableQuantity(request.getProductAvailableQuantity());
-        product.setProductReorderThreshold(request.getProductReorderThreshold());
-        product.setTotalQuantityOfTheProduct(request.getTotalQuantityOfTheProduct());
+        product.setPrice(request.getProductPrice());
+        product.setAvailableQuantity(request.getProductAvailableQuantity());
+        product.setReorderThreshold(request.getProductReorderThreshold());
+        product.setTotalQuantity(request.getTotalQuantityOfTheProduct());
         product.setIsActive(true);
         product.setCreatedDate(new Date());
         return product;

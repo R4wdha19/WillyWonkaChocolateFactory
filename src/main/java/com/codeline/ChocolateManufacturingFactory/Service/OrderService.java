@@ -26,7 +26,7 @@ public class OrderService {
         Order order = OrderRequestObject.convert(orderRequestObject);
         Customer customer = customerRepository.getCustomerById(orderRequestObject.getCustomer().getCustomerId());
         Product product = productRepository.
-                getProductById(orderRequestObject.getProduct().getProductId());
+                getProductById(orderRequestObject.getProduct().getId());
         order.setProduct(product);
         order.setCustomerHistoryOfOrders(customer);
         orderRepository.save(order);

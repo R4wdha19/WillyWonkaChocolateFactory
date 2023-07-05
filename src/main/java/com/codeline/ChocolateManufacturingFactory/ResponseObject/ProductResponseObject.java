@@ -25,11 +25,11 @@ public class ProductResponseObject {
 
     public static ProductResponseObject convertRequestToResponse(Product requestFromUser) {
         return ProductResponseObject.builder()
-                .id(requestFromUser.getProductId())
+                .id(requestFromUser.getId())
                 .name(requestFromUser.getProductName())
-                .price(requestFromUser.getProductPrice())
-                .currentQuantity(requestFromUser.getProductAvailableQuantity())
-                .reorderThreshold(requestFromUser.getProductReorderThreshold())
+                .price(requestFromUser.getPrice())
+                .currentQuantity(requestFromUser.getAvailableQuantity())
+                .reorderThreshold(requestFromUser.getReorderThreshold())
                 .inventory(requestFromUser.getInventory())
                 .build();
 

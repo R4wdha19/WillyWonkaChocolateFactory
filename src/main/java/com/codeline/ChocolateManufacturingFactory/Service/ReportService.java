@@ -45,8 +45,8 @@ public class ReportService {
                 ProductInventoryDTO productInventoryDTO = new ProductInventoryDTO();
                 productInventoryDTO.setInventoryLocation(inventory.getInventoryLocation());
                 productInventoryDTO.setProductName(product.getProductName());
-                productInventoryDTO.setProductAvailableQuantity(product.getProductAvailableQuantity());
-                productInventoryDTO.setProductReorderThreshold(product.getProductReorderThreshold());
+                productInventoryDTO.setProductAvailableQuantity(product.getAvailableQuantity());
+                productInventoryDTO.setProductReorderThreshold(product.getReorderThreshold());
                 productInventoryDTOS.add(productInventoryDTO);
 
             }

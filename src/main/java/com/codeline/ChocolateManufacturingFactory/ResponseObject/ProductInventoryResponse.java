@@ -20,7 +20,7 @@ public class ProductInventoryResponse {
     public static ProductInventoryResponse convertRequestToResponse(Product requestFromUser) {
         return ProductInventoryResponse.builder()
                 .name(requestFromUser.getProductName())
-                .currentQuantity(requestFromUser.getProductAvailableQuantity())
+                .currentQuantity(requestFromUser.getAvailableQuantity())
                 .build();
 
     }

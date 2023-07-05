@@ -6,9 +6,7 @@ import com.codeline.ChocolateManufacturingFactory.Repository.IngredientRepositor
 import com.codeline.ChocolateManufacturingFactory.Repository.ProductRepository;
 import com.codeline.ChocolateManufacturingFactory.RequestObject.IngredientRequestObject;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Date;
 import java.util.List;
@@ -24,7 +22,7 @@ public class IngredientService {
 
         for (IngredientRequestObject request : ingredientRequestObject) {
             Ingredient ingredient = IngredientRequestObject.convert(request);
-            Product productById = productRepository.getProductById(request.getProduct().getProductId());
+            Product productById = productRepository.getProductById(request.getProduct().getId());
             ingredient.setIngredientsOfProduct(productById);
             ingredientRepository.save(ingredient);
         }

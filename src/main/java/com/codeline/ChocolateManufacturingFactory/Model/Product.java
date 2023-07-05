@@ -14,14 +14,19 @@ public class Product extends BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    Integer productId;
-    String productName;
+    Integer id;
+    @Column(name = "product_name")
+    String name;
     @ManyToOne
     @JoinColumn(name = "inventory_id", referencedColumnName = "id")
     Inventory inventory;
-    Double productPrice;
-    Integer productAvailableQuantity;
-    Integer totalQuantityOfTheProduct;
-    Integer productReorderThreshold;
+    @Column(name = "product_price")
+    Double price;
+    @Column(name = "product_available_quantity")
+    Integer availableQuantity;
+    @Column(name = "total_product_quantity")
+    Integer totalQuantity;
+    @Column(name = "product_reorder_threshold")
+    Integer reorderThreshold;
 
 }
