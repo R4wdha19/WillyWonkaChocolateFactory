@@ -40,10 +40,10 @@ public class ReportService {
         List<Inventory> allInventories = inventoryRepository.getAllActiveInventories();
         List<ProductInventoryDTO> productInventoryDTOS = new ArrayList<>();
         for (Inventory inventory : allInventories) {
-            List<Product> allProductsByInventoryId = productRepository.allProductsByInventoryId(inventory.getInventoryId());
+            List<Product> allProductsByInventoryId = productRepository.allProductsByInventoryId(inventory.getId());
             for (Product product : allProductsByInventoryId) {
                 ProductInventoryDTO productInventoryDTO = new ProductInventoryDTO();
-                productInventoryDTO.setInventoryLocation(inventory.getInventoryLocation());
+                productInventoryDTO.setInventoryLocation(inventory.getLocation());
                 productInventoryDTO.setProductName(product.getProductName());
                 productInventoryDTO.setProductAvailableQuantity(product.getAvailableQuantity());
                 productInventoryDTO.setProductReorderThreshold(product.getReorderThreshold());

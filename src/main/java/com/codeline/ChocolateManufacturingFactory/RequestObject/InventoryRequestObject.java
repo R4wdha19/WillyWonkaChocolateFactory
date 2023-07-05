@@ -20,8 +20,8 @@ public class InventoryRequestObject {
 
     public static Inventory convert(InventoryRequestObject request) {
         Inventory inventory = new Inventory();
-        inventory.setInventoryLocation(request.getInventoryLocation());
-        inventory.setInventoryManagedBy(request.getInventoryManagedBy());
+        inventory.setLocation(request.getInventoryLocation());
+        inventory.setManagedBy(request.getInventoryManagedBy());
         inventory.setIsActive(true);
         inventory.setCreatedDate(new Date());
         return inventory;

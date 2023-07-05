@@ -10,7 +10,7 @@ import javax.persistence.*;
 @Setter
 @Getter
 @Entity
-public class Inventory extends BaseEntity {
+public class Inventory extends BaseEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -19,6 +19,7 @@ public class Inventory extends BaseEntity {
     String location;
     @Column(name = "inventory_managed_By")
     String managedBy;
+
 
 
 }

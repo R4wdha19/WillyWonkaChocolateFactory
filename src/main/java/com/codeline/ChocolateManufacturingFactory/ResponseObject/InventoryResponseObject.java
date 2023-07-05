@@ -20,9 +20,9 @@ public class InventoryResponseObject {
 
     public static InventoryResponseObject convertRequestToResponse(Inventory inventoryRequestFromUser) {
         return InventoryResponseObject.builder()
-                .id(inventoryRequestFromUser.getInventoryId())
-                .location(inventoryRequestFromUser.getInventoryLocation())
-                .managedBy(inventoryRequestFromUser.getInventoryManagedBy())
+                .id(inventoryRequestFromUser.getId())
+                .location(inventoryRequestFromUser.getLocation())
+                .managedBy(inventoryRequestFromUser.getManagedBy())
                 .build();
     }
 

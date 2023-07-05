@@ -6,16 +6,12 @@ import com.codeline.ChocolateManufacturingFactory.Repository.InventoryRepository
 import com.codeline.ChocolateManufacturingFactory.Repository.ProductRepository;
 import com.codeline.ChocolateManufacturingFactory.RequestObject.InventoryRequestObject;
 import com.codeline.ChocolateManufacturingFactory.ResponseObject.ProductInventoryResponse;
-import com.codeline.ChocolateManufacturingFactory.ResponseObject.ProductResponseObject;
 import com.codeline.ChocolateManufacturingFactory.ResponseObject.TrackInventoryResponse;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
 @Service
@@ -34,10 +30,10 @@ public class InventoryService {
         List<TrackInventoryResponse> trackInventoryResponses = new ArrayList<>();
         List<Inventory> allInventories = inventoryRepository.getAllActiveInventories();
         for (Inventory inventory : allInventories) {
-            List<Product> allProductsByInventoryId = productRepository.allProductsByInventoryId(inventory.getInventoryId());
+            List<Product> allProductsByInventoryId = productRepository.allProductsByInventoryId(inventory.getId());
             List<ProductInventoryResponse> allProductsByInventoryIdResponse = ProductInventoryResponse.convertListOfRequestsToResponses(allProductsByInventoryId);
             TrackInventoryResponse inventoryResponse = new TrackInventoryResponse();
-            inventoryResponse.setInventoryLocation(inventory.getInventoryLocation());
+            inventoryResponse.setInventoryLocation(inventory.getLocation());
             inventoryResponse.setProductList(allProductsByInventoryIdResponse);
             trackInventoryResponses.add(inventoryResponse);
 
@@ -52,8 +48,8 @@ public class InventoryService {
 
     public void updateInventory(InventoryRequestObject inventoryRequestObject) {
         Inventory inventory = getInventoryById(inventoryRequestObject.getInventoryId());
-        inventory.setInventoryManagedBy(inventoryRequestObject.getInventoryManagedBy());
-        inventory.setInventoryLocation(inventoryRequestObject.getInventoryLocation());
+        inventory.setManagedBy(inventoryRequestObject.getInventoryManagedBy());
+        inventory.setLocation(inventoryRequestObject.getInventoryLocation());
         inventory.setUpdatedDate(new Date());
         inventoryRepository.save(inventory);
     }
